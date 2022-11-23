@@ -1,13 +1,10 @@
-# Nome do workflow
-
 name: EBAC-MODULO-25
 
-# Comantos de configuração. 
+
 on:
 
   push:
-    branches: [ testes_ci ]
- 
+    branches: [ testes_ci ] 
 
 
   workflow_dispatch:
@@ -43,5 +40,5 @@ jobs:
           uses: peaceiris/actions-gh-pages@v3
           with:
             GITHUB_TOKEN: ${{SECRETS.GITHUB_TOKEN}}
-            BRANCH: gh-pages
+            publish_dir: ./mochawesome-report  
         
