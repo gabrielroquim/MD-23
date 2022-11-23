@@ -36,10 +36,11 @@ jobs:
         
         - run: "npx cypress run --reporter mochawesome  --reporter-options reportDir=\"cypress/results\",overwrite=false,html=false,json=true && npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json  && npx marge mochawesome.json"
        
-
          
         - name: Deploy to GitHub Pages
           uses: JamesIves/github-pages-deploy-action@3.7.1
+        - name: Publish Report 
+          uses: peaceiris/actions-gh-pages@v3
           with:
             GITHUB_TOKEN: ${{SECRETS.GITHUB_TOKEN}}
             BRANCH: gh-pages
